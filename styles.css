@@ -30,6 +30,25 @@ nav {
   grid-area: menu;
   background: orange;
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  background: #333;
+  flex-direction: column;
+}
+nav a {
+  padding: 1.25em 1.5em;
+  color: #ccc;
+  background: #555;
+  text-decoration: none;
+  transition: all 1.5s;
+}
+nav a:hover {
+  color: #fdf;
+  background: #979;
+}
+
 .intro {
   grid-area: intro;
   background: mediumseagreen;
@@ -63,5 +82,20 @@ footer {
       "intro   intro   menu"
       "content content menu"
       "footer  footer  footer";
+  }
+}
+
+
+@media screen and (min-width: 1400px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*grid-template-rows: 1fr 1fr 1fr 1fr;*/
+    /*or set the rows to 'view height (vh)'*/
+    grid-template-rows: 10vh 10vh 70vh 10vh;
+    grid-template-areas:
+      "figure  header  header  header"
+      "intro   intro   intro   menu"
+      "content content content menu"
+      "footer  footer  footer  footer";
   }
 }
