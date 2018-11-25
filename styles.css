@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: Avenir, Helveltica, Arial, san-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+/* use of * wildcard selector known to be slow so only for demo!  */
+body > * {
+  padding: 1em;
+  box-sizing: border-box;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  /*grid-gap: 6px; */
+  grid-template-areas:
+    "header  header"
+    "intro   figure"
+    "content content"
+    "footer  footer"
+    "menu    menu";
+}
+header {
+  grid-area: header;
+  background: purple;
+}
+nav {
+  grid-area: menu;
+  background: orange;
+}
+.intro {
+  grid-area: intro;
+  background: mediumseagreen;
+}
+figure {
+  grid-area: figure;
+  background: darkslateblue;
+  margin: 0;
+}
+main {
+  grid-area: content;
+  /* increasing the height of one element increases all row heights */
+  /*height: 25vh;*/
+  background: lightgreen;
+}
+footer {
+  grid-area: footer;
+  background: teal;
+  /* needs to take up the full grid row so this leaves a gap! */
+  /* height: 3em; */
+}
+
+@media screen and (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    /*grid-template-rows: 1fr 1fr 1fr 1fr;*/
+    /*or set the rows to 'view height (vh)'*/
+    grid-template-rows: 10vh 10vh 70vh 10vh;
+    grid-template-areas:
+      "figure  header  header"
+      "intro   intro   menu"
+      "content content menu"
+      "footer  footer  footer";
+  }
+}
